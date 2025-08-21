@@ -1,0 +1,19 @@
+image:
+  repository: mysql
+  tag: "8.0"
+  pullPolicy: IfNotPresent
+replicas: 1
+service:
+  type: ClusterIP
+  port: 3306
+persistence:
+  enabled: true
+  accessModes: ["ReadWriteOnce"]
+  size: 5Gi
+  storageClassName: ""
+  existingClaim: ""
+mysqlRootPassword: "rootpass123"
+mysqlDatabase: "appdb"
+mysqlUser: "appuser"
+mysqlPassword: "appr0cks"
+resources: {}

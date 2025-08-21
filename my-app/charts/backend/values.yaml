@@ -1,0 +1,18 @@
+image:
+  repository: ghcr.io/example/backend
+  tag: "1.0.0"
+  pullPolicy: IfNotPresent
+replicas: 1
+service:
+  type: ClusterIP
+  port: 5000
+resources: {}
+env:
+  - name: MYSQL_HOST
+    value: database
+  - name: MYSQL_DATABASE
+    value: appdb
+  - name: MYSQL_USER
+    value: appuser
+  - name: MYSQL_PASSWORD
+    value: appr0cks

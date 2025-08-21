@@ -1,0 +1,27 @@
+frontend:
+  image:
+    repository: nginx
+    tag: "1.27-alpine"
+  replicas: 1
+  service:
+    type: ClusterIP
+    port: 80
+  env:
+    - name: BACKEND_URL
+      value: "http://backend:5000"
+
+backend:
+  image:
+    repository: flasker/api
+    tag: "latest"
+  replicas: 1
+  service:
+    type: ClusterIP
+    port: 5000
+
+database:
+  image:
+    repository: mysql
+    tag: "8.0"
+  persistence:
+    size: 1Gi
